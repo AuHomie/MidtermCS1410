@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/aushahomer/Desktop/School/SPRING25/CS1410_C++/MidtermCS1410/build",
+  "command": "/usr/bin/clang++  -I/Users/aushahomer/Desktop/School/SPRING25/CS1410_C++/MidtermCS1410/inc -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/main.dir/src/main.cpp.o -c /Users/aushahomer/Desktop/School/SPRING25/CS1410_C++/MidtermCS1410/src/main.cpp",
+  "file": "/Users/aushahomer/Desktop/School/SPRING25/CS1410_C++/MidtermCS1410/src/main.cpp",
+  "output": "CMakeFiles/main.dir/src/main.cpp.o"
+}
+]
