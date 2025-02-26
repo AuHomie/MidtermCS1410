@@ -956,7 +956,8 @@ CMakeFiles/main.dir/src/main.cpp.o: /Users/aushahomer/Desktop/School/SPRING25/CS
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/limits.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stddef.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h
+  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h \
+  /Users/aushahomer/Desktop/School/SPRING25/CS1410_C++/MidtermCS1410/inc/MidtermH.h
 
 
 /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h:
@@ -1224,6 +1225,8 @@ CMakeFiles/main.dir/src/main.cpp.o: /Users/aushahomer/Desktop/School/SPRING25/CS
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__algorithm/is_heap.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__utility/pair.h:
+
+/Users/aushahomer/Desktop/School/SPRING25/CS1410_C++/MidtermCS1410/inc/MidtermH.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__utility/no_destroy.h:
 
