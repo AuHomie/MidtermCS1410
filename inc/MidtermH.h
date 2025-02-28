@@ -34,10 +34,10 @@ struct ClothingItem {
 class Closet {
 private:
     ClothingItem inventory[100];   // closet size
-    int itemCount = 0;             // Track the number of clothing items
+    int hangerCount = 0;             // Track the number of clothing items
     int nextId = 1;
 
-    // Private function to get type as a string
+    //to getter type as a string
     string getTypeString(ClothingType type) {
         switch (type) {
             case Top: return "Top";
@@ -47,7 +47,7 @@ private:
         }
     }
 
-    // Private function to get size as a string
+    // to getter size as a string
     string getSizeString(ClothingSize size) {
         switch (size) {
             case XSM: return "XSM";
@@ -61,16 +61,16 @@ private:
     }
 
 public:
-    // Function to add clothing to the closet
+    // add clothing to the closet
     void addClothing(string name, ClothingType type, ClothingSize size) {
-        if (itemCount < 100) {
-            inventory[itemCount].id = nextId++;
-            inventory[itemCount].name = name;
-            inventory[itemCount].type = type;
-            inventory[itemCount].size = size;
-            inventory[itemCount].isCheckedOut = false;
-            inventory[itemCount].checkedOutBy = "None";
-            itemCount++;
+        if (hangerCount < 100) {
+            inventory[hangerCount].id = nextId++;
+            inventory[hangerCount].name = name;
+            inventory[hangerCount].type = type;
+            inventory[hangerCount].size = size;
+            inventory[hangerCount].isCheckedOut = false;
+            inventory[hangerCount].checkedOutBy = "None";
+            hangerCount++;
             cout << "Added: " << name << " (" << getTypeString(type) 
                  << ", Size: " << getSizeString(size) << ")\n";
         } else {
@@ -81,7 +81,7 @@ public:
     // Function to display all items
     void displayInventory() {
         cout << "\nCloset Inventory:\n";
-        for (int i = 0; i < itemCount; i++) {
+        for (int i = 0; i < hangerCount; i++) {
             cout << "ID: " << inventory[i].id
                  << " | Name: " << inventory[i].name
                  << " | Type: " << getTypeString(inventory[i].type)
@@ -93,7 +93,7 @@ public:
 
     // Function to check out an item
     void checkOutItem(int id, string personName) {
-        for (int i = 0; i < itemCount; i++) {
+        for (int i = 0; i < hangerCount; i++) {
             if (inventory[i].id == id) {
                 if (!inventory[i].isCheckedOut) {
                     inventory[i].isCheckedOut = true;
@@ -110,7 +110,7 @@ public:
 
     // Function to return an item
     void returnItem(int id) {
-        for (int i = 0; i < itemCount; i++) {
+        for (int i = 0; i < hangerCount; i++) {
             if (inventory[i].id == id) {
                 if (inventory[i].isCheckedOut) {
                     cout << inventory[i].checkedOutBy << " returned: " << inventory[i].name << "\n";
