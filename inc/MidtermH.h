@@ -20,7 +20,7 @@ enum ClothingSize {
     XXL
 };
 
-// Struct to store clothing information
+// Struct to store closet info
 struct ClothingItem {
     int id;
     string name;
@@ -33,12 +33,12 @@ struct ClothingItem {
 // Class to manage the closet system
 class Closet {
 private:
-    ClothingItem inventory[100];   // closet size
+    ClothingItem inventory[100];     // closet size
     int hangerCount = 0;             // Track the number of clothing items
     int nextId = 1;
 
-    //to getter type as a string
-    string getTypeString(ClothingType type) {
+  
+    string getTypeString(ClothingType type) {   //to get type as a string
         switch (type) {
             case Top: return "Top";
             case Bottom: return "Bottom";
@@ -47,8 +47,8 @@ private:
         }
     }
 
-    // to getter size as a string
-    string getSizeString(ClothingSize size) {
+   
+    string getSizeString(ClothingSize size) {  // to get size as a string
         switch (size) {
             case XSM: return "XSM";
             case SM: return "SM";
@@ -61,8 +61,8 @@ private:
     }
 
 public:
-    // add clothing to the closet
-    void addClothing(string name, ClothingType type, ClothingSize size) {
+   
+    void addClothing(string name, ClothingType type, ClothingSize size) {  // add clothing
         if (hangerCount < 100) {
             inventory[hangerCount].id = nextId++;
             inventory[hangerCount].name = name;
@@ -78,8 +78,7 @@ public:
         }
     }
 
-    // Function to display all items
-    void displayInventory() {
+    void displayInventory() { // display all items
         cout << "\nCloset Inventory:\n";
         for (int i = 0; i < hangerCount; i++) {
             cout << "ID: " << inventory[i].id
@@ -91,8 +90,10 @@ public:
         }
     }
 
-    // Function to check out an item
-    void checkOutItem(int id, string personName) {
+
+    // Function to checkout stuff
+    void checkOutItem(int id, string personName) { 
+    
         for (int i = 0; i < hangerCount; i++) {
             if (inventory[i].id == id) {
                 if (!inventory[i].isCheckedOut) {
@@ -108,8 +109,8 @@ public:
         cout << "It's not in here. Did you check the laundry'.\n";
     }
 
-    // Function to return an item
-    void returnItem(int id) {
+    
+    void returnItem(int id) { // Function to return an item
         for (int i = 0; i < hangerCount; i++) {
             if (inventory[i].id == id) {
                 if (inventory[i].isCheckedOut) {
