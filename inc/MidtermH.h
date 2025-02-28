@@ -1,8 +1,5 @@
 #pragma once
 #include <iostream>
-using namespace std;
-
-#include <iostream>
 #include <string>
 using namespace std;
 
@@ -36,8 +33,8 @@ struct ClothingItem {
 // Class to manage the closet system
 class Closet {
 private:
-    ClothingItem inventory[100]; // Fixed-size array for inventory
-    int itemCount = 0;           // To track the number of items
+    ClothingItem inventory[100];   // closet size
+    int itemCount = 0;             // Track the number of clothing items
     int nextId = 1;
 
     // Private function to get type as a string
@@ -77,7 +74,7 @@ public:
             cout << "Added: " << name << " (" << getTypeString(type) 
                  << ", Size: " << getSizeString(size) << ")\n";
         } else {
-            cout << "Inventory is full. Cannot add more items.\n";
+            cout << "Your closet is full! Stop shopping or donate some stuff.\n";
         }
     }
 
@@ -101,14 +98,14 @@ public:
                 if (!inventory[i].isCheckedOut) {
                     inventory[i].isCheckedOut = true;
                     inventory[i].checkedOutBy = personName;
-                    cout << personName << " checked out: " << inventory[i].name << "\n";
+                    cout << personName << "  Has checked out: " << inventory[i].name << endl;
                 } else {
-                    cout << "Item is already checked out by " << inventory[i].checkedOutBy << ".\n";
+                    cout << "It is already checked out by " << inventory[i].checkedOutBy << ". Ya snooze ya loose";
                 }
                 return;
             }
         }
-        cout << "Item not found.\n";
+        cout << "It's not in here. Did you check the laundry'.\n";
     }
 
     // Function to return an item
@@ -125,7 +122,7 @@ public:
                 return;
             }
         }
-        cout << "Item not found.\n";
+        cout << "I can't seem to find what you are looking for, The Emperors New Cloths?.\n";
     }
 };
 

@@ -44,12 +44,12 @@ int main() {
         else if (choice == 4) {
             string name;
             int type, size;
-            cout << "Enter clothing name: ";
+            cout << "Enter clothing brand / nick name: ";
             cin.ignore();
             getline(cin, name);
-            cout << "Select type (0 = Top, 1 = Bottom, 2 = Jacket): ";
+            cout << "What type (0 = Top, 1 = Bottom, 2 = Jacket): ";
             cin >> type;
-            cout << "Select size (0 = XSM, 1 = SM, 2 = MED, 3 = LRG, 4 = XL, 5 = XXL): ";
+            cout << "What size (0 = XSM, 1 = SM, 2 = MED, 3 = LRG, 4 = XL, 5 = XXL): ";
             cin >> size;
 
             // Input validation
@@ -60,11 +60,11 @@ int main() {
             }
         } 
         else if (choice == 5) {
-            cout << "Exiting program. Goodbye!\n";
+            cout << "Exiting closet program. Byeeeee!\n";
             break;
         } 
         else {
-            cout << "Invalid choice. Please try again.\n";
+            cout << "Invalid choice. Umm.. Somethings not right. Try again.\n";
         }
     }
 
