@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Darwin-clang++"
+	BuildStamp="20250306-1728-Experimental"
+	Name="dhcp-172-20-198-15.wireless.weber.edu"
+	Generator="ctest-3.31.3"
+	CompilerName="/usr/bin/clang++"
+	CompilerVersion="16.0.0.16000026"
+	OSName="macOS"
+	Hostname="Aushas-MacBook-Pro.local"
+	OSRelease="15.3.1"
+	OSVersion="24D70"
+	OSPlatform="arm64"
+	Is64Bits="1"
+	VendorString="Apple"
+	VendorID="Apple"
+	FamilyID="0"
+	ModelID="0"
+	ModelName="Apple M2 Pro"
+	ProcessorCacheSize="131072"
+	NumberOfLogicalCPU="10"
+	NumberOfPhysicalCPU="10"
+	TotalVirtualMemory="0"
+	TotalPhysicalMemory="16384"
+	LogicalProcessorsPerPhysical="10"
+	ProcessorClockFrequency="0"
+	>
+	<Testing>
+		<StartDateTime>Mar 06 10:29 MST</StartDateTime>
+		<StartTestTime>1741282141</StartTestTime>
+		<TestList/>
+		<EndDateTime>Mar 06 10:29 MST</EndDateTime>
+		<EndTestTime>1741282141</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

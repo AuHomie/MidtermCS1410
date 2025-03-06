@@ -30,15 +30,15 @@ struct ClothingItem {
     string checkedOutBy;
 };
 
-// Class to manage the closet system
+// Class run the closet system
 class Closet {
 private:
-    ClothingItem inventory[100];     // closet size
+    ClothingItem inventory[100];     // closet size restrictions. (Rude)
     int hangerCount = 0;             // Track the number of clothing items
-    int nextId = 1;
+    int nextId = 1;                     // for the hanger math.
 
   
-    string getTypeString(ClothingType type) {   //to get type as a string
+    string getType(ClothingType type) {   //to get type as a string 
         switch (type) {
             case Top: return "Top";
             case Bottom: return "Bottom";
@@ -48,7 +48,7 @@ private:
     }
 
    
-    string getSizeString(ClothingSize size) {  // to get size as a string
+    string getSize(ClothingSize size) {  // to get size as a string 
         switch (size) {
             case XSM: return "XSM";
             case SM: return "SM";
@@ -64,34 +64,20 @@ public:
    
     void addClothing(string name, ClothingType type, ClothingSize size) {  // add clothing
         if (hangerCount < 100) {
-            inventory[hangerCount].id = nextId++;
+            inventory[hangerCount].id = nextId++; //got math help from neighbor
             inventory[hangerCount].name = name;
             inventory[hangerCount].type = type;
             inventory[hangerCount].size = size;
             inventory[hangerCount].isCheckedOut = false;
             inventory[hangerCount].checkedOutBy = "None";
             hangerCount++;
-            cout << "Added: " << name << " (" << getTypeString(type) 
-                 << ", Size: " << getSizeString(size) << ")\n";
+            cout << "Added: " << name << " (" << getType(type) 
+                 << ", Size: " << getSize(size) << ")"<< endl;
         } else {
-            cout << "Your closet is full! Stop shopping or donate some stuff.\n";
+            cout << "Your closet is full! Stop shopping or donate some stuff."<< endl;
         }
     }
-
-    void displayInventory() { // display all items
-        cout << "\nCloset Inventory:\n";
-        for (int i = 0; i < hangerCount; i++) {
-            cout << "ID: " << inventory[i].id
-                 << " | Name: " << inventory[i].name
-                 << " | Type: " << getTypeString(inventory[i].type)
-                 << " | Size: " << getSizeString(inventory[i].size)
-                 << " | Status: " << (inventory[i].isCheckedOut ? "Checked Out" : "Available")
-                 << " | Checked Out By: " << inventory[i].checkedOutBy << "\n";
-        }
-    }
-
-
-    // Function to checkout stuff
+    // checkout stuff
     void checkOutItem(int id, string personName) { 
     
         for (int i = 0; i < hangerCount; i++) {
@@ -101,12 +87,12 @@ public:
                     inventory[i].checkedOutBy = personName;
                     cout << personName << "  Has checked out: " << inventory[i].name << endl;
                 } else {
-                    cout << "It is already checked out by " << inventory[i].checkedOutBy << ". Ya snooze ya loose";
+                    cout << "It is already checked out by " << inventory[i].checkedOutBy << ". Ya snooze ya loose"<< endl;
                 }
                 return;
             }
         }
-        cout << "It's not in here. Did you check the laundry'.\n";
+        cout << "It's not in here. Did you check the laundry'."<< endl;
     }
 
     
@@ -114,16 +100,16 @@ public:
         for (int i = 0; i < hangerCount; i++) {
             if (inventory[i].id == id) {
                 if (inventory[i].isCheckedOut) {
-                    cout << inventory[i].checkedOutBy << " returned: " << inventory[i].name << "\n";
+                    cout << inventory[i].checkedOutBy << " returned: " << inventory[i].name << endl;
                     inventory[i].isCheckedOut = false;
                     inventory[i].checkedOutBy = "None";
                 } else {
-                    cout << "Item was not checked out.\n";
+                    cout << "Item was not checked out."<< endl;
                 }
                 return;
             }
         }
-        cout << "I can't seem to find what you are looking for, The Emperors New Cloths?.\n";
+        cout << "I can't seem to find what you are looking for, The Emperors New Cloths?."<< endl;
     }
 };
 
