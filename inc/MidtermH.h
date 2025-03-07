@@ -22,23 +22,23 @@ enum ClothingSize {
 
 // Struct to store closet info
 struct ClothingItem {
-    int id;
-    string name;
-    ClothingType type;
-    ClothingSize size;
-    bool isCheckedOut;
-    string checkedOutBy;
+    int id;                  // id number to each hanger
+    string name;                // Clothing name and 
+    ClothingType type;          // type is listed below
+    ClothingSize size;          // Same for size
+    bool isCheckedOut;          // yes or no if it is checked out
+    string checkedOutBy;        // Name of who checked it out. 
 };
 
 // Class run the closet system
 class Closet {
 private:
-    ClothingItem inventory[100];     // closet size restrictions. (Rude)
-    int hangerCount = 0;             // Track the number of clothing items
-    int nextId = 1;                     // for the hanger math.
+    ClothingItem inventory[100];     // closet size restrictions. (Rude) Used an Array (You can't go beyond the number. )
+    int hangerCount = 0;             // Track the number of clothing items 
+    int nextId = 1;                     // for the hanger id math
 
   
-    string getType(ClothingType type) {   //to get type as a string 
+    string getType(ClothingType type) {   //to get type from the input of the user and asssine the right type from the enum but put into a string. 
         switch (type) {
             case Top: return "Top";
             case Bottom: return "Bottom";
@@ -48,7 +48,7 @@ private:
     }
 
    
-    string getSize(ClothingSize size) {  // to get size as a string 
+    string getSize(ClothingSize size) {  // to get type from the input of the user and asssine the right size from the enumbut put into a strin. 
         switch (size) {
             case XSM: return "XSM";
             case SM: return "SM";
@@ -62,21 +62,21 @@ private:
 
 public:
    
-    void addClothing(string name, ClothingType type, ClothingSize size) {  // add clothing
-        if (hangerCount < 100) {
+    void addClothing(string name, ClothingType type, ClothingSize size) {  // function to add clothing
+        if (hangerCount < 100) { // is there room in the closet?
             inventory[hangerCount].id = nextId++; //got math help from neighbor
-            inventory[hangerCount].name = name;
-            inventory[hangerCount].type = type;
-            inventory[hangerCount].size = size;
-            inventory[hangerCount].isCheckedOut = false;
-            inventory[hangerCount].checkedOutBy = "None";
-            hangerCount++;
-            cout << "Added: " << name << " (" << getType(type) 
-                 << ", Size: " << getSize(size) << ")"<< endl;
+            inventory[hangerCount].name = name;  // adds name input to hanger
+            inventory[hangerCount].type = type;     // adds tyoe to hanger
+            inventory[hangerCount].size = size;     // adds size to hanger
+            inventory[hangerCount].isCheckedOut = false;        // pre adds that the item is not checked out
+            inventory[hangerCount].checkedOutBy = "None";       // pre adds that no one has checked out the item
+            hangerCount++; // pre loads the next hanger 
+            cout << "Added: " << name << " (" << getType(type) << ", Size: " << getSize(size) << ")"<< endl;
         } else {
             cout << "Your closet is full! Stop shopping or donate some stuff."<< endl;
         }
     }
+    
     // checkout stuff
     void checkOutItem(int id, string personName) { 
     
