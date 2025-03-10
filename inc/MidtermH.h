@@ -7,7 +7,9 @@ using namespace std;
 enum ClothingType {
     Top,
     Bottom,
-    Jacket
+    Jacket,
+    Belt
+
 };
 
 // Enum for clothing size
@@ -19,6 +21,37 @@ enum ClothingSize {
     XL,
     XXL
 };
+
+// Enum for color family
+enum ColorFam{
+    Black,
+    White,
+    Red,
+    Orange,
+    Yellow,
+    Green,
+    Blue,
+    Violet,
+    Multi
+};
+
+//Enum for detail on item
+enum ItemDetail{
+    Striped,
+    Dots,
+    Patterns,
+    Sheer,
+    Sequins,
+    Leather,
+    Latex,
+    Lace,
+    Beaded,
+    Embroidery,
+    Studs
+
+};
+
+
 
 // Struct to store closet info
 struct ClothingItem {

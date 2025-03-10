@@ -19,7 +19,7 @@ int main() {
         cout << "2. Return Item"<< endl;
         cout << "3. Add New Clothing"<< endl;
         cout << "4. Exit"<< endl;
-        cout << "Choose an option: "<< endl;
+        cout << "Choose an option: '\n'";
         cin >> choice;
 
         if (choice == 1) {
