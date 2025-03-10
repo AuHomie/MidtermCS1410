@@ -76,28 +76,28 @@ public:
             cout << "Your closet is full! Stop shopping or donate some stuff."<< endl;
         }
     }
-    
+
     // checkout stuff
-    void checkOutItem(int id, string personName) { 
+    void checkOutItem(int id, string personName) { // fuction passing the info in on hanger id, and name
     
-        for (int i = 0; i < hangerCount; i++) {
-            if (inventory[i].id == id) {
-                if (!inventory[i].isCheckedOut) {
-                    inventory[i].isCheckedOut = true;
-                    inventory[i].checkedOutBy = personName;
-                    cout << personName << "  Has checked out: " << inventory[i].name << endl;
-                } else {
-                    cout << "It is already checked out by " << inventory[i].checkedOutBy << ". Ya snooze ya loose"<< endl;
+        for (int i = 0; i < hangerCount; i++) { // loop to go over array to see if the item is checked out or not, 
+            if (inventory[i].id == id) {      //
+                if (!inventory[i].isCheckedOut) {    // if the hanger is not marked as cheked out (f)
+                    inventory[i].isCheckedOut = true;   // it marks it as check out by changing it to true
+                    inventory[i].checkedOutBy = personName; // attatches the name of who is checking it out to the hanger
+                    cout << personName << "  Has checked out: " << inventory[i].name << endl; // confermation output
+                } else {                            
+                    cout << "It is already checked out by " << inventory[i].checkedOutBy << ". Ya snooze ya loose"<< endl; // or tells you it is gone, and who had it
                 }
                 return;
             }
         }
-        cout << "It's not in here. Did you check the laundry'."<< endl;
+        cout << "It's not in here. Did you check the laundry'."<< endl;// or it can't find the item at all
     }
 
     
     void returnItem(int id) { // Function to return an item
-        for (int i = 0; i < hangerCount; i++) {
+        for (int i = 0; i < hangerCount; i++) { 
             if (inventory[i].id == id) {
                 if (inventory[i].isCheckedOut) {
                     cout << inventory[i].checkedOutBy << " returned: " << inventory[i].name << endl;
