@@ -40,7 +40,7 @@ int main() {
         else if (choice == 3) {
             string name;
             int type, size, color, detail;
-            cout << "Enter clothing brand / nick name: \n";
+            cout << "Enter clothing brand / nick-name: \n";
             cin.ignore();
             getline(cin, name);
             cout << "What type (0 = Top, 1 = Bottom, 2 = Jacket): \n";
