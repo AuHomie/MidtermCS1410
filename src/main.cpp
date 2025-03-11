@@ -7,19 +7,18 @@ int main() {
     int choice;
 
     // Initial items
-    myCloset.addClothing("Black Prada T-Shirt", Top, MED);
-    myCloset.addClothing("Blue Star Jeans", Bottom, LRG);
-    myCloset.addClothing("RedLeather Eddy Murphy Jacket", Jacket, XL);
+    myCloset.addClothing(" Prada T-Shirt", Top, MED, Black, None);
+    myCloset.addClothing("Blue Star Jeans", Bottom, LRG, Blue, None);
+    myCloset.addClothing("RedLeather Eddy Murphy Jacket", Jacket, XL, Red, Leather);
 
     // Main menu loop
     while (true) {
-        cout << "'\n'Closet Checkout System'\n'";
-      
-        cout << "1. Check Out Item'\n'";
-        cout << "2. Return Item'\n'";
-        cout << "3. Add New Clothing'\n'";
+        cout << "'\n'Closet Checkout System\n";
+        cout << "1. Check Out Item.\n";
+        cout << "2. Return Item \n";
+        cout << "3. Add New Clothing \n";
         cout << "4. Exit'\n'";
-        cout << "Choose an option: '\n'";
+        cout << "Choose an option: \n";
         cin >> choice;
 
         if (choice == 1) {
@@ -40,7 +39,7 @@ int main() {
         } 
         else if (choice == 3) {
             string name;
-            int type, size;
+            int type, size, color, detail;
             cout << "Enter clothing brand / nick name: \n";
             cin.ignore();
             getline(cin, name);
@@ -48,11 +47,15 @@ int main() {
             cin >> type;
             cout << "What size (0 = XSM, 1 = SM, 2 = MED, 3 = LRG, 4 = XL, 5 = XXL): \n";
             cin >> size;
+            cout << "What color family (0 = Black, 1 = White, 2 = Red, 3 = Orange, 4 = Yellow, 5 = Green, 6 = Blue, 7 = Violet, 8 = Multi) \n";
+            cin >> color;
+            cout << "Dose this item have any details? 0 = None, 1 =Dots, 2 = Stripes, 3 = Pattern, 4 = Sheer, 5 = Sequins,6 =  Leather, 7 = Latex, 8 = Lace,9 =Beaded, 10 = Embroidery, 11 = Studs\n";
+            cin >> detail;
              // Input validation
-             if (type >= 0 && type <= 2 && size >= 0 && size <= 5) {
-                myCloset.addClothing(name, static_cast<ClothingType>(type), static_cast<ClothingSize>(size));
+             if (type >= 0 && type <= 2 && size >= 0 && size <= 5 && color>=0 && color<=7 && detail>=0 && detail<=11) {
+                myCloset.addClothing(name, static_cast<ClothingType>(type), static_cast<ClothingSize>(size), static_cast<ColorFam>(color),static_cast<ItemDetail>(detail));
             } else {
-                cout << "Invalid type or size.\n";
+                cout << "Invalid input.\n";
             }
         } 
         else if (choice == 4) {
