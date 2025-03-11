@@ -142,7 +142,7 @@ public:
             inventory[hangerCount].isCheckedOut = false;        // pre adds that the item is not checked out
             inventory[hangerCount].checkedOutBy = "None";       // pre adds that no one has checked out the item
             hangerCount++; // pre loads the next hanger 
-            cout << "Added: " << name << " (" << getType(type) << ", Size: " << getSize(size) << " Color("<<getColor(color)<<" , With the "<<getItemDetail(detail)<< ". "<< endl;
+            cout << "Added: " << name << " (" << getType(type) << ", Size: " << getSize(size) << " Color "<<getColor(color)<<" , With the "<<getItemDetail(detail)<< ". "<< endl;
         } else {
             cout << "Your closet is full! Stop shopping or donate some stuff."<< endl;
         }
