@@ -133,16 +133,16 @@ public:
    
     void addClothing(string name, ClothingType type, ClothingSize size, ColorFam color, ItemDetail detail) {  // function to add clothing
         if (hangerCount < 100) { // is there room in the closet?
-            inventory[hangerCount].id = nextId++; //got math help from neighbor
-            inventory[hangerCount].name = name;  // adds name input to hanger
-            inventory[hangerCount].type = type;     // adds tyoe to hanger
-            inventory[hangerCount].size = size;     // adds size to hanger
-            inventory[hangerCount].color = color;  // adds color to hanger
-            inventory[hangerCount].detail = detail; // adds detail info to hanger
+            inventory[hangerCount].id = nextId++;    //got math help from neighbor
+            inventory[hangerCount].name = name;      // adds name input to hanger
+            inventory[hangerCount].type = type;      // adds tyoe to hanger
+            inventory[hangerCount].size = size;      // adds size to hanger
+            inventory[hangerCount].color = color;    // adds color to hanger
+            inventory[hangerCount].detail = detail;  // adds detail info to hanger
             inventory[hangerCount].isCheckedOut = false;        // pre adds that the item is not checked out
             inventory[hangerCount].checkedOutBy = "None";       // pre adds that no one has checked out the item
             hangerCount++; // pre loads the next hanger 
-            cout << "Added: " << name << " (" << getType(type) << ", Size: " << getSize(size) << " Color "<<getColor(color)<<" , With the "<<getItemDetail(detail)<< ". "<< endl;
+            cout << "Added: " << name << " " << getType(type) << ", Size: " << getSize(size) << " Color "<<getColor(color)<<"  , With the "<<getItemDetail(detail)<< ". "<< endl;
         } else {
             cout << "Your closet is full! Stop shopping or donate some stuff."<< endl;
         }
