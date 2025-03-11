@@ -13,7 +13,7 @@ int main() {
 
     // Main menu loop
     while (true) {
-        cout << endl << "Closet Checkout System";
+        cout << "'\n'Closet Checkout System";
       
         cout << "1. Check Out Item'\n'";
         cout << "2. Return Item'\n'";
