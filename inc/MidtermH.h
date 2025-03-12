@@ -9,7 +9,6 @@ enum ClothingType {
     Bottom,
     Jacket,
     Belt
-
 };
 
 // Enum for clothing size

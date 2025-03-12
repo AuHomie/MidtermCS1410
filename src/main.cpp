@@ -9,7 +9,7 @@ int main() {
     // Initial items
     myCloset.addClothing(" Prada T-Shirt", Top, MED, Black, None);
     myCloset.addClothing("Blue Star Jeans", Bottom, LRG, Blue, None);
-    myCloset.addClothing("RedLeather Eddy Murphy Jacket", Jacket, XL, Red, Leather);
+    myCloset.addClothing("Eddy Murphy Jacket", Jacket, XL, Red, Leather);
 
     // Main menu loop
     while (true) {
