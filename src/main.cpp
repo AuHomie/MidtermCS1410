@@ -49,7 +49,7 @@ int main() {
             cin >> size;
             cout << "What color family (0 = Black, 1 = White, 2 = Red, 3 = Orange, 4 = Yellow, 5 = Green, 6 = Blue, 7 = Violet, 8 = Multi) \n";
             cin >> color;
-            cout << "Does this item have any details? 0 = None, 1 =Dots, 2 = Stripes, 3 = Pattern, 4 = Sheer, 5 = Sequins,6 =  Leather, 7 = Latex, 8 = Lace,9 =Beaded, 10 = Embroidery, 11 = Studs\n";
+            cout << "Does this item have any details? 0 = None, 1 = Dots, 2 = Stripes, 3 = Pattern, 4 = Sheer, 5 = Sequins, 6 =  Leather, 7 = Latex, 8 = Lace,9 =Beaded, 10 = Embroidery, 11 = Studs\n";
             cin >> detail;
              // Input validation
              if (type >= 0 && type <= 2 && size >= 0 && size <= 5 && color>=0 && color<=8 && detail>=0 && detail<=11) {
