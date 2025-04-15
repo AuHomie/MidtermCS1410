@@ -14,8 +14,8 @@ int main() {
     myCloset.addClothing("Eddy Murphy Jacket", Jacket, XL, Red, Leather);
 
     // Initial customers
-    myCloset.addCustomer("Beyoncé Knowles", "123 Star Lane", "555-1234", 1);
-    myCloset.addCustomer("Taylor Swift", "456 Heartbreak Blvd", "555-5678", 2);
+    myCloset.addCustomer("Issa Rae", "123 Star Lane", "555-1234", 1);
+    myCloset.addCustomer("Kelly Rowland", "456 Heartbreak Blvd", "555-5678", 2);
 
     while (true) {
         cout << "\nCloset Checkout System\n";

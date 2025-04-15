@@ -185,6 +185,18 @@ private:
     
 public:
 
+void viewCustomers() const {
+    cout << "\n--- Registered Customers ---\n";
+    if (customerCount == 0) {
+        cout << "No customers registered yet.\n";
+        return;
+    }
+
+    for (int i = 0; i < customerCount; i++) {
+        customer[i].displayCustomer();
+    }
+}
+
     void addCustomer(string name, string address, string phone, int accountType) {
         if (customerCount < 50) {
             customer[customerCount] = Customer(nextCustomerId++, accountType, name, address, phone);
@@ -250,18 +262,7 @@ public:
         cout << "I can't seem to find what you are looking for, The Emperors New Cloths?."<< endl;
     }
 
-    void Closet::viewCustomers() const {
-        cout << "\n--- Registered Customers ---\n";
-        if (customerCount == 0) {
-            cout << "No customers registered yet.\n";
-            return;
-        }
-    
-        for (int i = 0; i < customerCount; i++) {
-            customer[i].displayCustomer();
-        }
-    }
-    
+
     void displayAllClothes() {
         if (hangerCount == 0) {
             cout << "Closet is empty!" << endl;
@@ -280,8 +281,6 @@ public:
                  << ", By: " << inventory[i].checkedOutBy << endl;
         }
     }
-
-    
-    
+ 
 };
 
