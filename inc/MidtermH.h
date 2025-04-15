@@ -3,6 +3,48 @@
 #include <string>
 using namespace std;
 
+
+class Person {
+    protected:
+        string name;
+        string address;
+        string phone;
+    public:
+        Person() {}
+        Person(string n, string a, string p) : name(n), address(a), phone(p) {}
+    
+        string getName() const { return name; }
+        string getAddress() const { return address; }
+        string getPhone() const { return phone; }
+    
+        void setName(string n) { name = n; }
+        void setAddress(string a) { address = a; }
+        void setPhone(string p) { phone = p; }
+    
+        void displayInfo() const {
+            cout << "Name: " << name << ", Address: " << address << ", Phone: " << phone << endl;
+        }
+    };
+    
+    // Customer inherits from Person
+    class Customer : public Person {
+    private:
+        int id;
+        int accountType; // 1 = Stylist, 2 = Regular
+    public:
+        Customer() {}
+        Customer(int i, int at, string n, string a, string p)
+            : Person(n, a, p), id(i), accountType(at) {}
+    
+        int getId() const { return id; }
+        int getAccountType() const { return accountType; }
+    
+        void displayCustomer() const {
+            cout << "Customer ID: " << id << ", Account Type: " << (accountType == 1 ? "Stylist" : "Regular") << endl;
+            displayInfo();
+        }
+    };
+    
 // Enum for clothing type
 enum ClothingType {
     Top,
@@ -68,10 +110,16 @@ struct ClothingItem {
 // Class run the closet system
 class Closet {
 private:
+    Customer customer[50];
+    int customerCount = 0;
+    int nextCustomerId = 1;
+
     ClothingItem inventory[100];     // closet size restrictions. (Rude) Used an Array (You can't go beyond the number. )
     int hangerCount = 0;             // Track the number of clothing items 
     int nextId = 1;                     // for the hanger id math
 
+   
+            
   
     string getType(ClothingType type) {   //to get type from the input of the user and asssine the right type from the enum but put into a string. 
         switch (type) {
@@ -122,13 +170,30 @@ private:
             case Latex: return "Latex";
             case Lace: return "Lace";
             case Beaded: return "Beaded";
-            case Embroidery: return "Emroidery";
+            case Embroidery: return "Embroidery";
             case Studs: return "Studs";
-                default: return "Unkown";
+                default: return "Unknown";
         }
+    }
+
+    bool isCustomerExists(string name) {
+        for (int i = 0; i < customerCount; i++) {
+            if (customer[i].getName() == name) return true;
+        }
+        return false;
     }
     
 public:
+
+    void addCustomer(string name, string address, string phone, int accountType) {
+        if (customerCount < 50) {
+            customer[customerCount] = Customer(nextCustomerId++, accountType, name, address, phone);
+            cout << "Added customer: " << name << " (ID: " << customer[customerCount].getId() << ")" << endl;
+            customerCount++;
+        } else {
+            cout << "Max number of customers reached!" << endl;
+        }
+    }
    
     void addClothing(string name, ClothingType type, ClothingSize size, ColorFam color, ItemDetail detail) {  // function to add clothing
         if (hangerCount < 100) { // is there room in the closet?
@@ -149,7 +214,10 @@ public:
 
     // checkout stuff
     void checkOutItem(int id, string personName) { // fuction passing the info in on hanger id, and name
-    
+        if (!isCustomerExists(personName)) {
+            cout << "Customer not found in system!" << endl;
+            return;
+        }
         for (int i = 0; i < hangerCount; i++) { // loop to go over array to see if the item is checked out or not, 
             if (inventory[i].id == id) {      //
                 if (!inventory[i].isCheckedOut) {    // if the hanger is not marked as cheked out (f)
@@ -181,5 +249,39 @@ public:
         }
         cout << "I can't seem to find what you are looking for, The Emperors New Cloths?."<< endl;
     }
+
+    void Closet::viewCustomers() const {
+        cout << "\n--- Registered Customers ---\n";
+        if (customerCount == 0) {
+            cout << "No customers registered yet.\n";
+            return;
+        }
+    
+        for (int i = 0; i < customerCount; i++) {
+            customer[i].displayCustomer();
+        }
+    }
+    
+    void displayAllClothes() {
+        if (hangerCount == 0) {
+            cout << "Closet is empty!" << endl;
+            return;
+        }
+
+        
+        for (int i = 0; i < hangerCount; i++) {
+            cout << "ID: " << inventory[i].id
+                 << ", Name: " << inventory[i].name
+                 << ", Type: " << getType(inventory[i].type)
+                 << ", Size: " << getSize(inventory[i].size)
+                 << ", Color: " << getColor(inventory[i].color)
+                 << ", Detail: " << getItemDetail(inventory[i].detail)
+                 << ", Checked Out: " << (inventory[i].isCheckedOut ? "Yes" : "No")
+                 << ", By: " << inventory[i].checkedOutBy << endl;
+        }
+    }
+
+    
+    
 };
 
